@@ -1,5 +1,8 @@
 
-![Logo](/assets/logoweb.gif)
+<p align="center">
+  <img src="./assets/logoweb.gif" />
+</p>
+
 
 ### Codember is a game and programming challenge that that takes place in the month of November for the dev community by [Midudev](https://github.com/midudev).  
 
