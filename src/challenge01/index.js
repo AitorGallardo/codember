@@ -89,7 +89,7 @@ function checkFile(file) {
   const arrayWithRawUsers = getRawArrayOfUsers(file);
   const allParsedUsers = parseUsers(arrayWithRawUsers);
   const res = getNumberOfValidUsersAndLastUser(allParsedUsers)
-  console.log('RESULT',res);
+  console.log(`Result is ${res.amount}${res.lastUser}`);
 }
 
 fs.readFile(fileUrl, 'utf8', (err, data) => checkFile(data));

@@ -1,4 +1,4 @@
-Challenge 1: Fix Twitter!
+# Challenge 1: Fix Twitter!
 
 Problem
 
@@ -44,3 +44,11 @@ How to submit the solution
 Use the "submit" command to send your solution with the number of correct users + the name of the last valid user. For example:
 
 $ submit 482@midudev
+
+## Solution: 
+
+[✅ My solution](./index.js)
+
+[👑 Liked solutions](./liked_solutions.md)
+
+    $ submit 156@giroz
