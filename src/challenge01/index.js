@@ -8,12 +8,12 @@ function getRawArrayOfUsers(file) {
     (allUsers, currentUser) => {
       let currentIndex;
 
-      if (currentUser.length > 0) {
+      if (currentUser.length > 0) { // Wanna see if its a blank new line
         currentIndex = allUsers[0];
 
         if (allUsers[currentIndex]) {
-          //adding an space on concat strings
-          currentUser = ' '.repeat() + currentUser;
+          //adding an space on concat strings to not overlap properties
+          currentUser = ' '.repeat(1) + currentUser;
           allUsers[currentIndex] = allUsers[currentIndex].concat(currentUser);
         } else {
           allUsers[currentIndex] = currentUser;
@@ -77,6 +77,7 @@ function getNumberOfValidUsersAndLastUser(users) {
         acc['lastUser'] = user.usr;
 
       }
+
     return acc;
     },
     { amount: 0,lastUser: null }
@@ -90,4 +91,5 @@ function checkFile(file) {
   const res = getNumberOfValidUsersAndLastUser(allParsedUsers)
   console.log('RESULT',res);
 }
+
 fs.readFile(fileUrl, 'utf8', (err, data) => checkFile(data));
