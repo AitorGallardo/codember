@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "first": "node src/challenge01/index",
     "second": "node src/challenge02/index",
-    "third": "node src/challenge03/index"
+    "third": "node src/challenge03/index",
+    "fourth": "node src/challenge04/index"
   },
   "repository": {
     "type": "module",
