@@ -8,7 +8,8 @@
     "first": "node src/challenge01/index",
     "second": "node src/challenge02/index",
     "third": "node src/challenge03/index",
-    "fourth": "node src/challenge04/index"
+    "fourth": "node src/challenge04/index",
+    "fifth": "node src/challenge05/index"
   },
   "repository": {
     "type": "module",

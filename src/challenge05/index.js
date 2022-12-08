@@ -1,22 +1,46 @@
-const firstNumber = 11098;
-const lastNumber = 98123;
-const validNumbers = [];
+const fs = require('fs');
 
-for (let currentNumber = firstNumber; currentNumber < lastNumber; currentNumber++) {
+const filePath = './src/challenge05/mecenas.json';
+const file = fs.readFileSync(filePath, 'utf8');
 
-  let realDigits = currentNumber.toString().split('').map(Number);
+const arrayOfPeople = JSON.parse(file);
 
-  const hasAscendingNumbers = realDigits.every((_, index) => index === realDigits.length-1 ? true : realDigits[index] <= realDigits[index + 1]);
 
-  if(!hasAscendingNumbers) continue;
-    
-  const hasNum5 = realDigits.filter((digit)=> digit === 5).length >= 2;
+const onlyOneRemainingAlive = () =>
+  arrayOfPeople.filter((e) => e !== null).length === 1;
+let hasRemainingAlive = onlyOneRemainingAlive();
 
-  if(hasNum5){
-    validNumbers.push(currentNumber);
+while (!hasRemainingAlive) {
+  let i = 0;
+
+  while (i < arrayOfPeople.length) {
+    if (arrayOfPeople[i] !== null) {
+      let j = i + 1;
+      while (j < arrayOfPeople.length) {
+        //if we did a full round without succeed, we end search
+        if (j === i) {
+          i = arrayOfPeople.length;
+          break;
+        }
+        if (arrayOfPeople[j] !== null) {
+          arrayOfPeople[j] = null;
+          i = j + 1;
+          break;
+        }
+        //if array has ended without succeed, starts loop with first index again
+        if (j === arrayOfPeople.length - 1) {
+          j = 0;
+        } else {
+          j++;
+        }
+      }
+    } else {
+      i++;
+    }
   }
+
+  hasRemainingAlive = onlyOneRemainingAlive();
 }
-console.dir(validNumbers, {'maxArrayLength': null});
-console.log(`submit ${validNumbers.length}-${validNumbers.at(55)}`);
-
-
+const [people, index] =  arrayOfPeople.map((people,index)=> people!==null ? [people,index] : null).find(e=>e!==null);
+console.log(`submit ${index}-${people}`);
+// console.table(arrayOfPeople);
